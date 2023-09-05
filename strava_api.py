@@ -15,7 +15,7 @@ def authorization_refresh():
 
     payload = {
         'client_id': 112918,
-        'client_secret': '7adfc48f1ccccc47db0565b73713ef01fa05c8a0',
+        'client_secret': client_secret, # Inset your client_secret here
         'refresh_token': refresh_token,
         'grant_type': "refresh_token",
         'f': 'json'
