@@ -1,7 +1,7 @@
 # Analysis of running performance with Python
 
 ## Introduction
-This project aims to analyze my running performance, comparing the 2022 and the 2023 season. All of my runs are recorded and publicly available on Strava, a popular fitness social network to share sporting activities. First, we retrieve the necessary data through the Strava APIs using Python's requests package in the strava_api.py script. 
+This project aims to analyze my running performance, comparing the 2022 and the 2023 seasons. All of my runs are recorded and publicly available on Strava, a popular fitness social network to share sporting activities. First, we retrieve the necessary data through the Strava APIs using Python's requests package in the strava_api.py script. 
 Then, we clean and analyze our data with the help of different Python packages such as Pandas and Seaborn in the activities_analysis.py script.
 
 ## Technologies
@@ -59,4 +59,4 @@ This function returns a json object with more specific details about a particula
 This function returns a json object with information about a particular route saved in Strava. It takes in the access token and the route id, which we can find within the URL of the activity on Strava.
 
 ## activities_analysis
-Work in progress
+After acquiring data from two different seasons, in this script, we clean the datasets and compare the performance of flat runs. Flat runs can be roughly divided into 5 zones depending on the average heart rate. As most of my runs occurred in zones 2 and 3, we consider those subsets. First, we plot zone 2 and zone 3 runs versus the average speed; then, we plot the number of runs in each zone for both seasons.
