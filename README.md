@@ -14,6 +14,8 @@ Here, we report a list of all Python packages that we used in this project:
 * matplotlib.pyploy
 * urllib3
 
+The last one is just a package needed to suppress a harmless warning that comes up when we make API requests.
+
 ## Strava APIs
 We retrieve our dataset from Strava using their free APIs. If you want to access your Strava data through APIs, there is a one-time manual procedure to do before diving into the code. 
 
@@ -35,5 +37,26 @@ Now, we have to use this code to make a request to the APIs that will give us a 
 is temporary, but we will use the refresh token to get a new access token every time the old one expires.
 
 ## strava_api
+In the first part of this script we define a series of convenient functions that could be helpful in the future.
 
-Description in progress
+### authorization_refresh
+Following what we mentioned earlier, we define a function that gets the refresh token obtained through the manual procedure saved in a json file and returns the updated access token to make all type of requests with a 'read_all' permission. 
+
+### all_activities
+This function takes in the access token and multiple optional parameters:
+
+* before (default: empty string): get all activities before a given date 'dd/mm/yyyy'
+* after (default: empty string): get all activities after a given date 'dd/mm/yyyy'
+* page (default: 1): number of pages requested
+* per_page (default: 30): number of activities per page requested (MAX 200)
+
+It returns a json object with all activities that satisfy the requirements specified.
+
+### activity_by_id
+This function returns a json object with more specific details about a particular activity. It takes in the access token and the activity id, which we can find in the dictionary corresponding to that activity in the json object obtained with the previous function.
+
+### route_by_id 
+This function returns a json object with information about a particular route saved in Strava. It takes in the access token and the route id, which we can find within the URL of the activity on Strava.
+
+## activities_analysis
+Work in progress
